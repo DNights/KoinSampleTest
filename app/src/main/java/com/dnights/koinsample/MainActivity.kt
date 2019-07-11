@@ -2,8 +2,7 @@ package com.dnights.koinsample
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.dnights.koinsample.app.BusinessService
-import com.dnights.koinsample.di.myModule
+import com.dnights.koinsample.service.BusinessService
 import org.koin.android.ext.android.get
 import org.koin.android.ext.android.inject
 

@@ -18,7 +18,3 @@ class MyApplication : Application() {
         }
     }
 }
-
-// Given some classes
-class Controller(val service : BusinessService)
-class BusinessService()
