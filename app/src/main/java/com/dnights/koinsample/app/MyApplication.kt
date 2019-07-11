@@ -1,9 +1,10 @@
-package com.dnights.koinsample
+package com.dnights.koinsample.app
 
 import android.app.Application
+import com.dnights.koinsample.di.myModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
-import org.koin.dsl.module
+
 
 class MyApplication : Application() {
     override fun onCreate(){
@@ -21,9 +22,3 @@ class MyApplication : Application() {
 // Given some classes
 class Controller(val service : BusinessService)
 class BusinessService()
-
-// just declare it
-val myModule = module {
-    single { Controller(get()) }
-    single { BusinessService() }
-}
