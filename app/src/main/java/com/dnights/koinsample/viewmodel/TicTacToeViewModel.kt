@@ -4,28 +4,12 @@ import androidx.databinding.ObservableArrayMap
 import androidx.databinding.ObservableField
 import com.dnights.koinsample.model.Board
 
-class TicTacToeViewModel : ViewModel {
+class TicTacToeViewModel : BaseViewModel() {
 
     val model: Board = Board()
 
     val cells: ObservableArrayMap<String, String> = ObservableArrayMap()
     val winner: ObservableField<String> = ObservableField()
-
-    override fun onCreate() {
-
-    }
-
-    override fun onPause() {
-
-    }
-
-    override fun onResume() {
-
-    }
-
-    override fun onDestroy() {
-
-    }
 
     fun onResetSelected() {
         model.restart()
