@@ -1,13 +1,12 @@
-package com.dnights.koinsample
+package com.dnights.koinsample.ui
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.dnights.koinsample.R
 import com.dnights.koinsample.service.BusinessService
 import kotlinx.android.synthetic.main.activity_main.*
-import org.koin.android.ext.android.get
 import org.koin.android.ext.android.inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity(){
 
     // lazy inject BusinessService into property
     private val service : BusinessService by inject()
