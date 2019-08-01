@@ -3,7 +3,7 @@
 ## koin sample test
 
 - 개인적으로 Koin 을 공부하면서 작업한 프로젝트 입니다.
-- MVVM 모델과 Koin을 같이 사용 하는 법으로 사용함
+- MVVM 모델과 Koin을 같이 사용
 
 
 ## 참고코드
