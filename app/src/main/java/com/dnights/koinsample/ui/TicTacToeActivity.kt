@@ -3,36 +3,21 @@ package com.dnights.koinsample.ui
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.databinding.DataBindingUtil
 import com.dnights.koinsample.R
 import com.dnights.koinsample.databinding.TictactoeBinding
 import com.dnights.koinsample.viewmodel.TicTacToeViewModel
+import org.koin.android.viewmodel.ext.android.getViewModel
 
 
-class TicTacToeActivity : BaseActivity(){
+class TicTacToeActivity : BindingActivity<TictactoeBinding>(){
+    override fun getLayoutResId(): Int = R.layout.tictactoe
 
-    private var viewModel = TicTacToeViewModel()
+    private lateinit var viewModel : TicTacToeViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView(this, R.layout.tictactoe) as TictactoeBinding
-        binding.viewModel = viewModel
-        viewModel.onCreate()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        viewModel.onPause()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        viewModel.onResume()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        viewModel.onDestroy()
+        setBinding()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -42,12 +27,18 @@ class TicTacToeActivity : BaseActivity(){
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+        return when (item.itemId) {
             R.id.action_reset -> {
                 viewModel.onResetSelected()
-                return true
+                true
             }
-            else -> return super.onOptionsItemSelected(item)
+            else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun setBinding() {
+        viewModel = getViewModel()
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
     }
 }
