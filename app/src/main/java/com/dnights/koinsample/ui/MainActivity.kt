@@ -1,5 +1,6 @@
 package com.dnights.koinsample.ui
 
+import android.content.Intent
 import android.os.Bundle
 import com.dnights.koinsample.R
 import com.dnights.koinsample.service.BusinessService
@@ -19,5 +20,7 @@ class MainActivity : BaseActivity(){
         //val service : BusinessService = get()
 
         maintext.text = service.sayHello()
+
+        startActivity(Intent(this, TicTacToeActivity::class.java))
     }
 }
