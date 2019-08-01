@@ -2,6 +2,7 @@ package com.dnights.koinsample.app
 
 import android.app.Application
 import com.dnights.koinsample.di.myModule
+import com.dnights.koinsample.di.ticTacToeModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
@@ -17,7 +18,9 @@ class MyApplication : Application() {
             // declare used Android context
             androidContext(this@MyApplication)
             // declare modules
-            modules(myModule)
+            modules(
+                listOf(myModule, ticTacToeModule)
+            )
         }
     }
 
